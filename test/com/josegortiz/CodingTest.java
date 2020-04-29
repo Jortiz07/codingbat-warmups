@@ -22,4 +22,16 @@ class CodingTest {
     assertFalse(Coding.makes10(a,b));
   }
 
+  @ParameterizedTest
+  @CsvFileSource(resources = "pos-neg-data-true.csv")
+  void posNegTrue(int a, int b, boolean negative) {
+    assertTrue(Coding.posNeg(a,b,negative));
+  }
+
+  @ParameterizedTest
+  @CsvFileSource(resources = "pos-neg-data-false.csv")
+  void posNegFalse(int a, int b, boolean negative) {
+    assertFalse(Coding.posNeg(a,b,negative));
+  }
+
 }
